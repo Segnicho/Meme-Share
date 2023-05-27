@@ -1,16 +1,14 @@
-import Post from '@/models/post.model'
-import { connectToDB } from '@/utils/db'
-import type { NextApiRequest, NextApiResponse } from 'next'
+import Post from "@/models/post.model";
+import { connectToDB } from "@/utils/db";
 
-export const POST = async(req:NextApiRequest, res:NextApiResponse) =>{
-    const {creator, photo, tags} = req.body
-    try {
-        await connectToDB()
-        const newPost = new Post(req.body)
-        await newPost.save()
-        res.status(201).json(newPost)
-    } catch (error) {
-        console.log(error);
-        res.status(500).json(error)
-    }
-}
+export const POST = async (req: Request) => {
+  try {
+    await connectToDB();
+    const newPost = new Post(req.body);
+    await newPost.save();
+    return new Response(JSON.stringify(newPost), { status: 201 });
+  } catch (error) {
+    console.log(error);
+    return new Response("Failed to post a meme", { status: 500 });
+  }
+};

@@ -98,8 +98,8 @@ const AddMeme:React.FC = () => {
           </div>
           <AddPhoto onImageUpload={handleImageUpload} />
           <div className="flex flex-row gap-4 mt-5 lg:mt-8 p-4 justify-center">
-            <button className="btn btn-outline border-none">Cancel</button>
-            <button className="btn btn-primary" type="submit">
+            <button className="btn btn-outline border-none" onClick={()=>window.location.href = "/"}>Cancel</button>
+            <button className="btn bg-accent hover:bg-sec" type="submit">
               Post
             </button>
           </div>

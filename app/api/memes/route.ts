@@ -5,7 +5,6 @@ export const POST = async (req: Request) => {
   try {
     await connectToDB();
     const data = await req.json();
-
     const newPost = new Post(data);
     await newPost.save();
     return new Response(JSON.stringify(newPost), { status: 201 });

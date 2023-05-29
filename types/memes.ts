@@ -4,4 +4,5 @@ export interface Meme {
   creator?: string;
   tags?: string[];
   _id?: string;
+  createdAt?: Date;
 }

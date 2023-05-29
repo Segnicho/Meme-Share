@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { api } from "@/slices/apiSlice";
 import { Meme } from "@/types/memes";
 
@@ -10,7 +10,6 @@ export const memesApi = api.injectEndpoints({
         providesTags: ["Memes"],
       }),
       addNewMeme: builder.mutation<Meme, Partial<Meme>>({
-        
         query: (meme) => ({
           url: "/memes",
           method: "POST",
@@ -30,5 +29,8 @@ export const memesApi = api.injectEndpoints({
   },
 });
 
-export const { useFetchMemesQuery, useAddNewMemeMutation, useUpdateMemeMutation } =
-  memesApi;
+export const {
+  useFetchMemesQuery,
+  useAddNewMemeMutation,
+  useUpdateMemeMutation,
+} = memesApi;

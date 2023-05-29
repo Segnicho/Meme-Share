@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 
+import ModalImage from  "react-modal-image"
 type MemeCardProps = {
   photo: string;
   tags: string[];
@@ -10,7 +11,9 @@ type MemeCardProps = {
 const MemeCard: React.FC<MemeCardProps> = ({ photo, tags }) => {
   return (
     <div className="m-2 rounded border-gray-400">
-      <img
+      <ModalImage
+        small={photo}
+        large={photo}
         className="w-[250px] h-[250px]"
         width={15}
         height={15}

@@ -1,20 +1,12 @@
-
+"use client"
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const API_BASE_URL = "http://localhost:300/api";
+const API_BASE_URL = "http://localhost:3000/api";
 export const api = createApi({
   reducerPath: "/memes",
-  tagTypes: ["Memes"],
+  tagTypes: ["Memes", "Users"],
   baseQuery: fetchBaseQuery({
     baseUrl: API_BASE_URL,
   }),
-  endpoints(builder) {
-    return {
-      fetchMemes: builder.query<void, void>({
-        query: () => "/memes",
-        providesTags: ["Memes"],
-      }),
-    };
-  },
+  endpoints: (builder) =>({})
 });
 
-export const { useFetchMemesQuery } = api;

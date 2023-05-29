@@ -11,7 +11,7 @@ const PostScema = new Schema({
     required: [true, "Image is required."],
   },
   tags: {
-    type: String,
+    type: Array<String>,
   },
 });
 

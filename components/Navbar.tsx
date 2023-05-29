@@ -4,9 +4,9 @@ import SwitchTheme from "./Theme";
 import Link from "next/link";
 
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
   return (
-    <navbar className="navbar sticky top-0 z-50 bg-base-100 ">
+    <div className="navbar sticky top-0 z-50 bg-base-100 ">
       <div className="navbar-start">
         <Link className="cursor-pointer" href="/">
           <p className="btn btn-ghost normal-case text-xl hover:bg-white ">
@@ -79,7 +79,7 @@ const Navbar = () => {
         <a className="btn bg-accent mr-5 hover:bg-secondary border-0">Get started</a>
         <SwitchTheme />
       </div>
-    </navbar>
+    </div>
   );
 };
 

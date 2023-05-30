@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Provider } from "react-redux";
 import { store } from "@/store";
+import AuthProvider from "@/hocs/AuthProvider";
 export default function RootLayout({
   children,
 }: {
@@ -11,10 +12,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Provider store={store}>
-          <Navbar />
-          <main>{children}</main>
-        </Provider>
+        <AuthProvider>
+          <Provider store={store}>
+            <Navbar />
+            <main>{children}</main>
+          </Provider>
+        </AuthProvider>
       </body>
     </html>
   );

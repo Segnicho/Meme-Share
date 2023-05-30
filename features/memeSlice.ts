@@ -1,12 +1,12 @@
 "use client";
-import { api } from "@/slices/apiSlice";
+import { API_BASE_URL, api } from "@/slices/apiSlice";
 import { Meme } from "@/types/memes";
 
 export const memesApi = api.injectEndpoints({
   endpoints(builder) {
     return {
       fetchMemes: builder.query<Meme[], void>({
-        query: () => `/memes`,
+        query: () => `${API_BASE_URL}/memes`,
         providesTags: ["Memes"],
       }),
       addNewMeme: builder.mutation<Meme, Partial<Meme>>({

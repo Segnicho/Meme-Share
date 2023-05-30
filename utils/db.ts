@@ -11,6 +11,8 @@ export const connectToDB = async () => {
   }
 
   try {
+    console.log("Mongos URI: ", process.env.NEXT_PUBLIC_MONGO_URI);
+    
     await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI!, {
       dbName: "meme-share",
       

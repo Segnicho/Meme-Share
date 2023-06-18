@@ -6,13 +6,10 @@ export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
 
   if (isConnected) {
-    console.log("MongoDB is already connected");
     return;
   }
 
-  try {
-    console.log("Mongos URI: ", process.env.NEXT_PUBLIC_MONGO_URI);
-    
+  try {    
     await mongoose.connect(process.env.NEXT_PUBLIC_MONGO_URI!, {
       dbName: "meme-share",
       

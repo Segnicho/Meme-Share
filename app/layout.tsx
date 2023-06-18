@@ -1,23 +1,23 @@
-"use client";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { Provider } from "react-redux";
-import { store } from "@/store";
-import AuthProvider from "@/hocs/AuthProvider";
+import StoreProvider from "@/hocs/Provider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { userId } = auth();
   return (
     <html lang="en">
       <body>
-        <AuthProvider>
-          <Provider store={store}>
-            <Navbar />
+        <StoreProvider>
+          <ClerkProvider>
+            <Navbar userId={userId} />
             <main>{children}</main>
-          </Provider>
-        </AuthProvider>
+          </ClerkProvider>
+        </StoreProvider>
       </body>
     </html>
   );

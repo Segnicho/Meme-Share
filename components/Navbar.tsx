@@ -2,8 +2,13 @@
 import React from "react";
 import SwitchTheme from "./Theme";
 import Link from "next/link";
-
-const Navbar: React.FC = () => {
+import { UserButton } from "@clerk/nextjs";
+import { SignedInAuthObject, SignedOutAuthObject } from "@clerk/nextjs/dist/types/server";
+const Navbar = ({
+  userId,
+}: {
+  userId: string | null;
+}) => {
   return (
     <div className="navbar sticky top-0 z-50 bg-base-100 ">
       <div className="navbar-start">
@@ -20,9 +25,17 @@ const Navbar: React.FC = () => {
         >
           Add Meme
         </Link>
-        <a className="btn bg-accent mr-5 hover:bg-sec border-0">
-          Login
-        </a>
+        {!userId ? (
+          <Link
+            href="/sign-in"
+            className="btn bg-accent mr-5 hover:bg-sec border-0"
+          >
+            Login
+          </Link>
+        ) : (
+          <UserButton afterSignOutUrl="/" />
+        )}
+        {/* <a className="btn bg-accent mr-5 hover:bg-sec border-0">Login</a> */}
         <SwitchTheme />
       </div>
     </div>

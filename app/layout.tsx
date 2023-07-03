@@ -11,7 +11,7 @@ export default function RootLayout({
   const { userId } = auth();
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-screen">
         <StoreProvider>
           <ClerkProvider>
             <Navbar userId={userId} />
